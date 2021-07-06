@@ -1,0 +1,74 @@
+
+// [ MIXINS ]
+
+// center > element via absolute positioning
+@mixin align($x: center, $y: center, $pos: absolute, $mx: 0, $my: 0) {
+
+    position: $pos;
+
+    $offset_x: -50%; $offset_y: -50%;
+
+    // set > x offset
+    @if $x == 'left'    { left: 0 + $mx;   $offset_x: 0; }
+    @if $x == 'center'  { left: 50% + $mx; $offset_x: -50%; }
+    @if $x == 'right'   { right: 0 + $mx;  $offset_x: 0; }
+    // set > y offset
+    @if $y == 'top'     { top: 0 + $my;    $offset_y: 0; }
+    @if $y == 'center'  { top: 50% + $my;  $offset_y: -50%; }
+    @if $y == 'bottom'  { bottom: 0 + $my; $offset_y: 0; }
+
+    transform: translateX($offset_x) translateY($offset_y);
+
+}
+
+// center > content via flexbox
+@mixin flex-align($x_axe: center, $y_axe: center) {
+    display: flex;
+    justify-content: $x_axe;
+    align-content: $y_axe;
+    align-items: $y_axe;
+}
+
+// center > content via margin
+@mixin mg-center($mg-top: 0, $mg-bottom: 0) {
+    display: block;
+    margin: $mg-top auto $mg-bottom auto;
+}
+
+// blur > background
+@mixin blur($v: 5px) {
+    backdrop-filter: blur($v);
+    -moz-backdrop-filter: blur($v);
+    -khtml-backdrop-filter: blur($v);
+    -webkit-backdrop-filter: blur($v);
+}
+
+// imitate > glassmorphism
+@mixin glass($blur, $opacity) {
+    @include blur($blur);
+    opacity: $opacity;
+}
+
+// set > border-radius
+@mixin border-radius($v) {
+    border-radius: $v;
+    -moz-border-radius: $v;
+    -khtml-border-radius: $v;
+    -webkit-border-radius: $v;
+}
+
+// set >box-shadow
+@mixin box-shadow($v) {
+    box-shadow: $v;
+    -moz-box-shadow: $v;
+    -khtml-box-shadow: $v;
+    -webkit-box-shadow: $v;
+}
+
+// set > centered background-image
+@mixin bg-img($path, $size: auto 100%, $pos: center) {
+    background-image: url($path);
+    background-repeat: no-repeat;
+    background-size: $size;
+    background-position: $pos;
+}

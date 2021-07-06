@@ -1,0 +1,379 @@
+@font-face {
+  font-family: "Optima";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Optima"), url("../../fonts/OPTIMA.woff") format("woff");
+}
+@font-face {
+  font-family: "Optima Italic";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Optima Italic"), url("../../fonts/Optima_Italic.woff") format("woff");
+}
+@font-face {
+  font-family: "Optima Medium";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Optima Medium"), url("../../fonts/Optima Medium.woff") format("woff");
+}
+@font-face {
+  font-family: "Optima Bold";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Optima Bold"), url("../../fonts/OPTIMA_B.woff") format("woff");
+}
+body.preload {
+  overflow: hidden;
+}
+
+body.loaded {
+  overflow: auto;
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+div#preloader {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #14181f;
+  transition: opacity 0.25s;
+  z-index: 9999;
+}
+div#preloader::after {
+  display: block;
+  content: "";
+  border: 0.25vw solid #1e242f;
+  width: 0;
+  height: 0;
+  padding: 2vw;
+  animation: preloader 1.5s cubic-bezier(0.2, 0, 0.8, 1) infinite;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+html {
+  font: 12px "Optima", sans-serif;
+}
+
+body {
+  background: #14181f;
+  color: #d8dbdd;
+}
+
+button {
+  background: transparent;
+  cursor: pointer;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+[active] {
+  color: #f8b19c;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+  cursor: alias;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #28303e;
+  border-radius: 7px;
+  border-radius: 7px;
+  -moz-border-radius: 7px;
+  -khtml-border-radius: 7px;
+  -webkit-border-radius: 7px;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #323c4e;
+  -webkit-transition: background 0.25s ease-in;
+  transition: background 0.25s ease-in;
+}
+
+::-webkit-scrollbar-track {
+  border: none;
+  background: transparent;
+}
+
+nav {
+  width: 100%;
+  height: 50px;
+  padding: 0 30px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 100px 1fr 100px;
+  grid-template-rows: 60px;
+  grid-template-areas: "ico-menu logo ico-enter";
+  justify-content: center;
+  align-items: center;
+}
+nav button.ico.menu {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: ico-menu;
+}
+nav h1.logo {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: logo;
+}
+nav button.ico.enter {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: ico-enter;
+}
+nav button.ico.menu {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+}
+nav button.ico.menu:hover svg.icon {
+  fill: #f8b19c;
+}
+nav button.ico.menu svg.icon {
+  width: 30px;
+  height: 30px;
+  fill: #d8dbdd;
+  transition: fill 0.25s;
+}
+nav h1.logo {
+  color: #d8dbdd;
+  margin: 0;
+  font-size: 1.5rem;
+  font-family: "Optima Bold";
+  text-align: center;
+}
+nav button.ico.enter {
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
+  align-items: center;
+  color: #d8dbdd;
+  font-size: 1.5rem;
+  transition: color 0.25s;
+}
+nav button.ico.enter:hover {
+  color: #f8b19c;
+}
+nav button.ico.enter:hover svg.icon {
+  fill: #f8b19c;
+}
+nav button.ico.enter svg.icon {
+  width: 13px;
+  height: 13px;
+  margin-right: 10px;
+  fill: #d8dbdd;
+  transition: fill 0.25s;
+}
+
+main {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "content";
+}
+main div.content {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: content;
+}
+main div.content {
+  min-height: calc(100vh - 100px);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+main div.content form {
+  width: 40%;
+  min-width: 320px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+main div.content form div.task {
+  width: 60%;
+  min-width: 320px;
+  color: #d8dbdd;
+  font-size: 1.5rem;
+  padding: 20px 0;
+  margin: 30px 0;
+  border-top: 1px solid #28303e;
+  border-bottom: 1px solid #28303e;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+main div.content form div.task .task-title, main div.content form div.task .task-inputs-title {
+  color: #f8b19c;
+}
+main div.content form div.task .task-title {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+main div.content form div.task .task-inputs-title {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+main div.content form div.checkbox {
+  width: 100%;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+}
+main div.content form div.checkbox input, main div.content form div.checkbox label {
+  flex-basis: 20px;
+  flex-grow: 0;
+  margin: 0;
+}
+main div.content form div.checkbox label {
+  flex-grow: 1;
+}
+main div.content form select {
+  width: 50%;
+  min-width: 320px;
+  padding: 10px;
+  margin-bottom: 30px;
+  background: transparent;
+  border: 1px solid #28303e;
+  outline: none;
+  color: #d8dbdd;
+  font-size: 1.3rem;
+}
+main div.content form select.select-wide {
+  width: 100%;
+}
+main div.content form select option {
+  background-color: #14181f;
+}
+main div.content form label {
+  width: 100%;
+  text-indent: 10px;
+  color: #bdc2c5;
+  font-size: 1.4rem;
+  text-align: left;
+  justify-self: flex-start;
+  margin-bottom: 10px;
+}
+main div.content form label.centered {
+  text-align: center;
+}
+main div.content form input {
+  flex-basis: 100%;
+  width: 100%;
+  padding: 20px 10px;
+  margin-bottom: 40px;
+  background: transparent;
+  border-bottom: 1px solid #d8dbdd;
+  font-size: 1.5rem;
+  color: #d8dbdd;
+}
+main div.content form input[type=text] {
+  transition: border-bottom 0.25s;
+}
+main div.content form input[type=text]:focus {
+  border-bottom: 1px solid #f8b19c;
+}
+main div.content form input[type=submit] {
+  margin-bottom: 60px;
+}
+main div.content form input[type=submit], main div.content form a.button, main div.content form button {
+  width: 100%;
+  text-align: center;
+  padding: 15px 10px;
+  font-size: 1.5rem;
+  background: #d8dbdd;
+  border: none;
+  color: #14181f;
+  font-family: "Optima Bold";
+  cursor: pointer;
+  transition: background 0.25s ease-out;
+}
+main div.content form input[type=submit]:hover, main div.content form a.button:hover, main div.content form button:hover {
+  background: #f8b19c;
+}
+main div.content form input[type=submit].submit-middle, main div.content form a.button.submit-middle, main div.content form button.submit-middle {
+  width: 60%;
+}
+main div.content form input[type=submit].success, main div.content form a.button.success, main div.content form button.success {
+  background: #28DC9F;
+}
+main div.results {
+  color: #d8dbdd !important;
+  font-size: 1.6rem;
+  line-height: 1.3em;
+}
+main div.results a {
+  padding: 15px 10px;
+  margin-top: 50px;
+  background: #d8dbdd;
+  border: none;
+  color: #14181f;
+  text-align: center;
+  font-family: "Optima Bold";
+  cursor: pointer;
+  transition: background 0.25s ease-out;
+}
+main div.results a:hover {
+  background: #f8b19c;
+}
+
+footer {
+  width: 100%;
+  height: 50px;
+  font-size: 1.5rem;
+  color: #d8dbdd;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+footer * {
+  margin: 0 10px;
+  font-size: 1.5rem;
+  color: #d8dbdd;
+  text-align: center;
+  display: inline-block;
+}
+footer span {
+  font-family: "Optima Bold";
+  margin: 0 5px;
+}
+footer a:hover {
+  color: #f8b19c;
+}
+
+@keyframes preloader {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+    border-radius: 0;
+  }
+  50% {
+    border-radius: 100px;
+    border-color: #f8b19c;
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+    border-radius: 0;
+  }
+}

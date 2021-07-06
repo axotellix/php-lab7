@@ -1,0 +1,60 @@
+
+// [ COLOURS ]:
+
+$white:    #fafafa;
+$grey:     #d8dbdd;
+$dark:     #14181f;
+$orange:   #f8b19c;
+$green:    #28DC9F;
+
+
+// [ FONTS ]:
+
+$f-size: 12px;
+$f-family: 'Optima', sans-serif;
+$font: $f-size $f-family;
+$f-lite: 300;
+$f-normal: 400;
+$f-bold: 700;
+
+
+// [ SIZES ]:
+
+$mb: 576px;
+$sm: 768px;
+$md: 900px;
+$lg: 1200px;
+$w: $lg;
+
+
+
+@font-face {
+    font-family: 'Optima';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Optima'), url('../../fonts/OPTIMA.woff') format('woff');
+    }
+    
+
+    @font-face {
+    font-family: 'Optima Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Optima Italic'), url('../../fonts/Optima_Italic.woff') format('woff');
+    }
+    
+
+    @font-face {
+    font-family: 'Optima Medium';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Optima Medium'), url('../../fonts/Optima Medium.woff') format('woff');
+    }
+    
+
+    @font-face {
+    font-family: 'Optima Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Optima Bold'), url('../../fonts/OPTIMA_B.woff') format('woff');
+    }
